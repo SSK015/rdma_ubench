@@ -103,8 +103,8 @@ QpContext::QpContext(IbContext &ib_ctx) : ib_ctx_(ib_ctx) {
   qp_init_attr.recv_cq = cq_;
   qp_init_attr.cap.max_send_wr = kMaxSendWr;
   qp_init_attr.cap.max_recv_wr = kMaxRecvWr;
-  qp_init_attr.cap.max_send_sge = 1;
-  qp_init_attr.cap.max_recv_sge = 1;
+  qp_init_attr.cap.max_send_sge = 32;
+  qp_init_attr.cap.max_recv_sge = 32;
   // Actual (returned) inline size may be larger than this value.
   // Works on Mellanox ConnectX-6 RNICs, not sure if this also works on other
   // RNICs.

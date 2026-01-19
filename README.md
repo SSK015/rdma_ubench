@@ -53,3 +53,13 @@ The client will issue RDMA requests to the server and report the throughput (op/
 - `--sec`: Benchmark duration (seconds).
 
 Default values for these flags can be found in [`ubench.cc`](ubench.cc).
+
+./ubench \
+  --zmq_ip 10.156.112.101 \
+  --zmq_port 5555 \
+  --ib_dev mlx5_0 \
+  --ib_port 1 \
+  --client_threads 3 \
+  --msg_size 64 \
+  --batch 16 \
+  --sec 5

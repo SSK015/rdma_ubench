@@ -44,14 +44,15 @@ void ClientContext::Init(unsigned int server_threads,
     qp_ctx->Activate();
     req_qps_.push_back(qp_ctx);
   }
+  spdlog::info("Client threads are ready.");
 
-  for (unsigned int i = 0; i < server_threads; i++) {
-    auto qp_ctx = std::make_shared<QpContext>(ib_ctx_);
-    SendLocalInfo(sock_, *qp_ctx);
-    RecvRemoteInfo(sock_, *qp_ctx);
-    qp_ctx->Activate();
-    rep_qps_.push_back(qp_ctx);
-  }
-
+  // for (unsigned int i = 0; i < server_threads; i++) {
+  //   auto qp_ctx = std::make_shared<QpContext>(ib_ctx_);
+  //   SendLocalInfo(sock_, *qp_ctx);
+  //   RecvRemoteInfo(sock_, *qp_ctx);
+  //   qp_ctx->Activate();
+  //   rep_qps_.push_back(qp_ctx);
+  // }
+  spdlog::info("Server threads are ready.");
   spdlog::info("Client is ready.");
 }
